@@ -47,14 +47,15 @@ public class ConnectionDB {
     }
     
     // Método para ejecutar el stored procedure spGlobalWay_RegistrarUsuario
-    public static void execSPGlobalWay_RegistroMoneda(Connection conn, String name, double value, int commission) {
+    public static void execSPGlobalWay_RegistroMoneda(Connection conn, String name, double valor_dolar_moneda, double valor_moneda_dolar, int commission) {
         try {
-            String sql = "{CALL spGlobalWay_RegistroMoneda(?, ?, ?)}";
+            String sql = "{CALL spGlobalWay_RegistroMoneda(?, ?, ?, ?)}";
             CallableStatement cstmt = conn.prepareCall(sql);
 
             cstmt.setString(1, name);
-            cstmt.setDouble(2, value);
-            cstmt.setInt(3, commission);
+            cstmt.setDouble(2, valor_dolar_moneda);
+            cstmt.setDouble(3, valor_moneda_dolar);
+            cstmt.setInt(4, commission);
 
             cstmt.execute();
             System.out.println("Stored procedure ejecutado exitosamente.");
@@ -76,10 +77,11 @@ public class ConnectionDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String nombre = rs.getString("nombre");
-                double valor = rs.getDouble("valor");
+                double valor_dolar_moneda = rs.getDouble("valor_dolar_moneda");
+                double valor_moneda_dolar = rs.getDouble("valor_moneda_dolar");
                 int comision = rs.getInt("comision");
 
-                listaMonedas.add(new Moneda(id, nombre, valor, comision));
+                listaMonedas.add(new Moneda(id, nombre, valor_dolar_moneda, valor_moneda_dolar, comision));
             }
             System.out.println("Stored procedure ejecutado exitosamente.");
             rs.close();

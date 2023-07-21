@@ -106,38 +106,57 @@
 
           <form class="form" action="svMonedas" method="post">
             <h2 class="form__heading">Tipo de Cambio</h2>
-            <div class="form__field">
-              <label for="coin" class="form__label">Moneda:</label>
-              <input
-                class="form__input"
-                type="text"
-                name="coin"
-                id="coin"
-                placeholder="Ejemplo: Colones"
-              />
+            
+            <fieldset class="form__fieldset">
+                <div class="form__field">
+                <label for="coin" class="form__label">Moneda:</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="coin"
+                  id="coin"
+                  placeholder="Ejemplo: Colones"
+                />
             </div>
+                
+                <div class="form__field">
+                <label class="form__label" for="commission">Comisión en %:</label>
+                <input
+                  class="form__input"
+                  id="commission"
+                  type="number"
+                  name="commission"
+                  placeholder="Ejemplo: 3"
+                />
+              </div>
+            </fieldset>
+            
+            <fieldset class="form__fieldset">
+                <div class="form__field">
+                <label for="valor_dolar_moneda" class="form__label">Valor de 1$ a moneda?</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="valor_dolar_moneda"
+                  id="valor_dolar_moneda"
+                  placeholder="Ejemplo: 520"
+                />
+              </div>
+
+              <div class="form__field">
+                <label for="valor_moneda_dolar" class="form__label">Valor de moneda a 1$:</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  name="valor_moneda_dolar"
+                  id="valor_moneda_dolar"
+                  placeholder="Ejemplo: 0,0090"
+                />
+              </div>
+            </fieldset>
   
-            <div class="form__field">
-              <label for="value" class="form__label">Valor de 1$:</label>
-              <input
-                class="form__input"
-                type="text"
-                name="value"
-                id="value"
-                placeholder="Ejemplo: 520"
-              />
-            </div>
   
-            <div class="form__field">
-              <label class="form__label" for="commission">Comisión en %:</label>
-              <input
-                class="form__input"
-                id="commission"
-                type="number"
-                name="commission"
-                placeholder="Ejemplo: 3"
-              />
-            </div>
+            
             <button type="submit" class="form__button">Registrar Moneda</button>
           </form>
         </div>

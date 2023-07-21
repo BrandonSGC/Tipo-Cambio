@@ -67,8 +67,11 @@ public class svMonedas extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String coin = request.getParameter("coin");
-        String value = request.getParameter("value");
+        String valor_dolar_moneda = request.getParameter("valor_dolar_moneda");
+        String valor_moneda_dolar = request.getParameter("valor_moneda_dolar");
         String commission = request.getParameter("commission");
+        
+        System.out.println(coin + valor_dolar_moneda + valor_moneda_dolar + commission);
         
         // Obtener la conexión
         Connection conn = ConnectionDB.getConnection();
@@ -76,7 +79,7 @@ public class svMonedas extends HttpServlet {
         if (conn != null) {
             
             // Llamar al stored procedure utilizando el método de ConnectionDB
-            ConnectionDB.execSPGlobalWay_RegistroMoneda(conn, coin, Double.parseDouble(value), Integer.parseInt(commission));
+            ConnectionDB.execSPGlobalWay_RegistroMoneda(conn, coin, Double.parseDouble(valor_dolar_moneda),  Double.parseDouble(valor_moneda_dolar), Integer.parseInt(commission));
 
             // Cerrar la conexión cuando ya no sea necesaria.
             try {
