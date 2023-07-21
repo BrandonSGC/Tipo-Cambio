@@ -48,6 +48,8 @@ public class svReserva extends HttpServlet {
         
         System.out.println(moneda_deseada + moneda_pago + monto_cambiar);
         
+        // Validar si es a dolar.
+        
         // Obtener la conexión
         Connection conn = ConnectionDB.getConnection();
         
