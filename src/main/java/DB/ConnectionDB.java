@@ -110,4 +110,23 @@ public class ConnectionDB {
             System.out.println("Error al ejecutar el stored procedure: " + e.getMessage());
         }
     }
+    
+    // Metodo para registrar los usuarios de Global Way
+    public static void execSPGlobalWay_RegistrarUsuariosGW(Connection conn, String user, String password, String name, String email) {
+        try {
+            String sql = "{CALL spGlobalWay_RegistrarUsuariosGW(?, ?, ?, ?)}";
+            CallableStatement cstmt = conn.prepareCall(sql);
+
+            cstmt.setString(1, user);
+            cstmt.setString(2, password);
+            cstmt.setString(3, name);
+            cstmt.setString(4, email);
+
+            cstmt.execute();
+            System.out.println("Stored procedure ejecutado exitosamente.");
+            cstmt.close();
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar el stored procedure: " + e.getMessage());
+        }
+    }
 }
