@@ -16,7 +16,7 @@
     <header class="header">
       <div class="header__container">
         <div class="header__display">
-          <a href="./index.html" class="header__logo">
+          <a href="/GlobalWay" class="header__logo">
             <img
               class=""
               src="./img/global-currency.png"
@@ -25,13 +25,13 @@
             <h1>Global Way</h1>
           </a>
           <nav class="navigation">
-            <a href="./compra_venta.html" class="navigation__link"
+            <a href="/GlobalWay/monedas.jsp" class="navigation__link"
               >Compra & Venta</a
             >
-            <a href="./registro_usuario.html" class="navigation__link"
+            <a href="/GlobalWay" class="navigation__link"
               >Registrar Usuario</a
             >
-            <a href="./tipo_cambio.html" class="navigation__link"
+            <a href="/GlobalWay" class="navigation__link"
               >Tipo de Cambio</a
             >
           </nav>
@@ -75,6 +75,8 @@
               id="monto_cambiar"
               type="number"
               name="monto_cambiar"
+              placeholder="Ejemplo: 1000"
+              required
             />
           </div>
 
@@ -84,7 +86,28 @@
     </section>
 
     <footer class="footer">
-      <h3 class="footer__heading">Footer</h3>
+      <div class="footer__container">
+        <div class="footer__display">
+          <div class="footer__column">
+            <h3 class="footer__heading">Universidad</h3>
+            <img class="footer__image footer__image--cuc" src="./img/blackCUC-NoText.png" alt="CUC logo">
+            <a class="footer__link" href="https://www.cuc.ac.cr/" target="_blank">Colegio Universitario de Cartago</a>
+          </div>
+          
+          <div class="footer__column">
+            <h3 class="footer__heading">Curso</h3>
+            <img class="footer__image" src="./img/coding (1).png" alt="Programming">
+            <p class="footer__student">Programación IV</p>
+          </div>
+
+          <div class="footer__column">
+            <h3 class="footer__heading">Estudiante</h3>
+            <img class="footer__image" src="./img/student-card.png" alt="Student">
+            <p class="footer__student">Brandon Gómez Carvajal</p>
+          </div>
+        </div>
+        <p class="footer__description">Website Created and Designed by <span> Brandon Gómez Carvajal </span>&copy;</p>
+      </div>
     </footer>
   </body>
 </html>

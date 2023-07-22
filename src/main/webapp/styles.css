@@ -181,6 +181,7 @@ fieldset {
   border: none;
   border-radius: 0.5rem;
   text-transform: uppercase;
+  background-color: #fff;
 }
 
 .form__button:hover {
@@ -197,7 +198,53 @@ fieldset {
 
 /* Footer */
 .footer {
-  height: 20rem;
   background-color: var(--black);
   color: var(--white);
+  padding: 5rem 0;
+}
+
+.footer__display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;;
+}
+
+@media (min-width: 768px) {
+  .footer__display {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25rem;
+  height: 20rem;
+}
+
+.footer__image {
+  width: 10rem;
+}
+
+.footer__image--cuc {
+  height: 10rem;
+}
+
+.footer__link {
+  color: var(--white);
+  text-decoration:underline;
+  margin: 1rem 0;
+}
+
+.footer__description {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.footer__description span {
+  font-weight: 700;
+  color: var(--aqua);
 }

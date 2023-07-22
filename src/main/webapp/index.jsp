@@ -13,7 +13,7 @@
     <header class="header">
       <div class="header__container">
         <div class="header__display">
-          <a href="./index.html" class="header__logo">
+          <a href="/GlobalWay" class="header__logo">
             <img
               class=""
               src="./img/global-currency.png"
@@ -22,13 +22,13 @@
             <h1>Global Way</h1>
           </a>
           <nav class="navigation">
-            <a href="./compra_venta.html" class="navigation__link"
+            <a href="/GlobalWay/monedas.jsp" class="navigation__link"
               >Compra & Venta</a
             >
-            <a href="./registro_usuario.html" class="navigation__link"
+            <a href="/GlobalWay" class="navigation__link"
               >Registrar Usuario</a
             >
-            <a href="./tipo_cambio.html" class="navigation__link"
+            <a href="/GlobalWay" class="navigation__link"
               >Tipo de Cambio</a
             >
           </nav>
@@ -73,12 +73,14 @@
                 type="text"
                 name="name"
                 placeholder="Nombre"
+                required
               />
               <input
                 class="form__input"
                 type="text"
                 name="surnames"
                 placeholder="Apellidos"
+                required
               />
             </fieldset>
             <fieldset class="form__fieldset">
@@ -87,12 +89,14 @@
                 type="number"
                 name="cedula"
                 placeholder="Cédula"
+                required
               />
               <input
                 class="form__input"
                 type="number"
                 name="phone"
                 placeholder="Teléfono"
+                required
               />
             </fieldset>
             <input
@@ -100,6 +104,7 @@
               type="email"
               name="email"
               placeholder="Correo electrónico"
+              required
             />
             <button type="submit" class="form__button">Registrar Usuario</button>
           </form>
@@ -116,6 +121,7 @@
                   name="coin"
                   id="coin"
                   placeholder="Ejemplo: Colones"
+                  required
                 />
             </div>
                 
@@ -140,6 +146,7 @@
                   name="valor_dolar_moneda"
                   id="valor_dolar_moneda"
                   placeholder="Ejemplo: 520"
+                  required
                 />
               </div>
 
@@ -151,6 +158,7 @@
                   name="valor_moneda_dolar"
                   id="valor_moneda_dolar"
                   placeholder="Ejemplo: 0,0090"
+                  required
                 />
               </div>
             </fieldset>
@@ -164,18 +172,29 @@
       </div>
     </section>
 
-    <section class="trade">
-      <div class="container">
-        <form class="form-compra-venta" action="svMonedas" method="get">
-          <h2 class="form__heading">Compra - Venta</h2>
-
-          <button type="submit" class="form__button">Ir a Compra - Venta</button>
-        </form>
-      </div>
-    </section>
-
     <footer class="footer">
-      <h3 class="footer__heading">Footer</h3>
+      <div class="footer__container">
+        <div class="footer__display">
+          <div class="footer__column">
+            <h3 class="footer__heading">Universidad</h3>
+            <img class="footer__image footer__image--cuc" src="./img/blackCUC-NoText.png" alt="CUC logo">
+            <a class="footer__link" href="https://www.cuc.ac.cr/" target="_blank">Colegio Universitario de Cartago</a>
+          </div>
+          
+          <div class="footer__column">
+            <h3 class="footer__heading">Curso</h3>
+            <img class="footer__image" src="./img/coding (1).png" alt="Programming">
+            <p class="footer__student">Programación IV</p>
+          </div>
+
+          <div class="footer__column">
+            <h3 class="footer__heading">Estudiante</h3>
+            <img class="footer__image" src="./img/student-card.png" alt="Student">
+            <p class="footer__student">Brandon Gómez Carvajal</p>
+          </div>
+        </div>
+        <p class="footer__description">Website Created and Designed by <span> Brandon Gómez Carvajal </span>&copy;</p>
+      </div>
     </footer>
   </body>
 </html>
