@@ -25,9 +25,9 @@
             <h1>Global Way</h1>
           </a>
           <nav class="navigation">
-            <a href="/GlobalWay/monedas.jsp" class="navigation__link"
-              >Compra & Venta</a
-            >
+            <form action="svMonedas" method="get">
+                <button class="navigation__button" type="submit">Compra & Venta</button>
+            </form>
             <a href="/GlobalWay" class="navigation__link"
               >Registrar Usuario</a
             >

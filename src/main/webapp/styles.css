@@ -98,9 +98,19 @@ fieldset {
   color: var(--black);
 }
 
-.navigation__link:hover {
+.navigation__link:hover,
+.navigation__button:hover {
   background-color: var(--celeste);
   transition: 0.3s;
+}
+
+.navigation__button {
+  display: block;
+  padding: 1rem;
+  color: var(--black);
+  border: none;
+  background-color: var(--white);
+  cursor: pointer;
 }
 
 /* Displays */
