@@ -61,7 +61,7 @@ public class svReserva extends HttpServlet {
             // Cerrar la conexión cuando ya no sea necesaria.
             try {
                 conn.close();
-                response.sendRedirect("monedas.jsp");
+                response.sendRedirect("/GlobalWay/svMostrarReservas");
             } catch (SQLException e) {
                 System.out.println("Error al cerrar la conexión: " + e.getMessage());
             }

@@ -1,13 +1,17 @@
 package DB;
 
 import Logic.Moneda;
+import Logic.UsuariosGW;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ConnectionDB {
     
@@ -129,4 +133,95 @@ public class ConnectionDB {
             System.out.println("Error al ejecutar el stored procedure: " + e.getMessage());
         }
     }
+    
+    public static boolean login(Connection conn, String user, String password) {
+        try {
+            String query = "SELECT * FROM USRs_GlobalWay WHERE usuario = ? AND contrasena = ?";
+            PreparedStatement statement = conn.prepareStatement(query);
+            statement.setString(1, user);
+            statement.setString(2, password);
+            ResultSet result = statement.executeQuery();
+            // Si hay un resultado, el usuario y contraseña son correctos.
+            return result.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
+    public static List<UsuariosGW> ObtenerUsuariosGW(Connection conn) {
+        List<UsuariosGW> listaUsuarios = new ArrayList<>();
+        try {
+            String sql = "{CALL spGlobalWay_ObtenerUsuarios}";
+            CallableStatement cstmt = conn.prepareCall(sql);
+
+            ResultSet rs = cstmt.executeQuery();
+
+            while (rs.next()) {
+                String usuario = rs.getString("usuario");
+                String contrasena = rs.getString("contrasena");
+                String nombre = rs.getString("nombre");
+                String email = rs.getString("email");
+                
+
+                listaUsuarios.add(new UsuariosGW(usuario, contrasena, nombre, email));
+            }
+            System.out.println("Stored procedure ejecutado exitosamente.");
+            rs.close();
+            cstmt.close();
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar el stored procedure o procesar el ResultSet: " + e.getMessage());
+        }
+        return listaUsuarios;
+    }
+    
+    
+    
+    public static List<Map<String, Object>> ejecutarSPMostrarReservas(Connection conn) throws SQLException {
+        CallableStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "{CALL spGlobalWay_MostrarReservas}";
+            stmt = conn.prepareCall(sql);
+            rs = stmt.executeQuery();
+
+            // Crear una lista para almacenar los datos del ResultSet
+            List<Map<String, Object>> reservasList = new ArrayList<>();
+
+            // Obtener la información de las columnas del ResultSet
+            int columnCount = rs.getMetaData().getColumnCount();
+            String[] columnNames = new String[columnCount];
+            for (int i = 0; i < columnCount; i++) {
+                columnNames[i] = rs.getMetaData().getColumnName(i + 1);
+            }
+
+            // Recorrer el ResultSet y agregar los datos a la lista
+            while (rs.next()) {
+                Map<String, Object> reservaMap = new HashMap<>();
+                for (int i = 0; i < columnCount; i++) {
+                    reservaMap.put(columnNames[i], rs.getObject(columnNames[i]));
+                }
+
+                reservasList.add(reservaMap);
+            }
+
+            return reservasList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            // Cerrar recursos
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            // No cierres la conexión aquí
+        }
+    }
+
+    
 }

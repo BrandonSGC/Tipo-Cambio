@@ -13,7 +13,7 @@
     <header class="header">
       <div class="header__container">
         <div class="header__display">
-          <a href="/GlobalWay" class="header__logo">
+          <a href="/GlobalWay/index.jsp" class="header__logo">
             <img
               class=""
               src="./img/global-currency.png"
@@ -25,11 +25,14 @@
             <form action="svMonedas" method="get">
                 <button class="navigation__button" type="submit">Compra & Venta</button>
             </form>
-            <a href="/GlobalWay" class="navigation__link"
+            <a href="/GlobalWay/index.jsp" class="navigation__link"
               >Registrar Usuario</a
             >
-            <a href="/GlobalWay" class="navigation__link"
+            <a href="/GlobalWay/index.jsp" class="navigation__link"
               >Tipo de Cambio</a
+            >
+            <a href="/GlobalWay/svMostrarReservas" class="navigation__link"
+              >Mostrar Reservas</a
             >
           </nav>
         </div>

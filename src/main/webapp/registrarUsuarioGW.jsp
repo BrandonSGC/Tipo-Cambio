@@ -23,7 +23,7 @@
                 type="text"
                 name="user"
                 placeholder="Usuario"
-                
+                required
               />
               
               <input
@@ -31,7 +31,7 @@
                 type="text"
                 name="password"
                 placeholder="Contraseña"
-                
+                required
               />
             </fieldset>
             <input
@@ -39,16 +39,19 @@
                 type="text"
                 name="name"
                 placeholder="Nombre"
-                
+                required
               />
             <input
               class="form__input"
               type="email"
               name="email"
               placeholder="Correo electrónico"
-              
+              required
             />
-            <button class="navigation__button" type="submit">Registrar Usuario</button>
+            <button class="form__button" type="submit">Registrar Usuario</button><br>
+            <a href="verUsuarios.jsp" class="form__button">Ver Usuarios</a><br>
+            <a href="registrarUsuarioGW.jsp" class="form__button">Modificar Usuarios</a><br>
+            <a href="registrarUsuarioGW.jsp" class="form__button">Eiminar Usuarios</a>
           </form>
     </body>
 </html>
